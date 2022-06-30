@@ -45,6 +45,8 @@ def preprocessing(img):
     gray = max_gray(img)
     gray = cv2.dilate(gray, np.ones((1, 4), np.uint8))
     gray = cv2.erode(gray, np.ones((4, 1), np.uint8))
+    gray = cv2.dilate(gray, np.ones((4, 1), np.uint8))
+    gray = cv2.erode(gray, np.ones((1, 4), np.uint8))
     gray = gamma_correction(gray, 0.8)
     gray = cv2.convertScaleAbs(gray, alpha=1.2, beta=8)
 
